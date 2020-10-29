@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .isHidden {
+        display: none;
+      }
+      .container {
+        width: 500px;
+        margin: 0 auto;
+      }
+      .block {
+        display: block;
+      }
+      .mb-20 {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <input
+        class="note-title block mb-20"
+        type="text"
+        placeholder="Note title"
+      />
+      <textarea
+        class="note-body block mb-20"
+        tname=""
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Note..."
+      ></textarea>
+      <p class="save-status isHidden">Saving note...</p>
+      <p class="last-edit"></p>
+      <a href="/index.html">Done</a>
+      <button class="note-remove">Remove Note</button>
+    </div>
+
+    <script src="./scripts/edit-bundle.js"></script>
+  </body>
+</html>
