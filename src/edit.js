@@ -2,6 +2,7 @@ import { getNotes, removeNote, saveNote, updateNote } from './notes';
 import { lastUpdated } from './views';
 import { debounce } from './utilities';
 import moment from 'moment';
+import medium from 'medium-editor';
 
 const noteTitleInput = document.querySelector('.note-title');
 const noteBodyInput = document.querySelector('.note-body');
@@ -11,6 +12,31 @@ const lastEdited = document.querySelector('.last-edit');
 const noteId = location.hash.substring(1);
 
 let debounced = debounce(saveEditedNote, 500);
+
+var editor = new MediumEditor('.editable', {
+  toolbar: {
+    /* These are the default options for the toolbar,
+           if nothing is passed this is what is used */
+    allowMultiParagraphSelection: true,
+    buttons: ['bold', 'italic', 'underline', 'anchor', 'h2', 'h3', 'quote'],
+    diffLeft: 0,
+    diffTop: -10,
+    firstButtonClass: 'medium-editor-button-first',
+    lastButtonClass: 'medium-editor-button-last',
+    relativeContainer: null,
+    standardizeSelectionStart: false,
+    static: false,
+    /* options which only apply when static is true */
+    align: 'center',
+    sticky: false,
+    updateOnEmptySelection: false,
+  },
+});
+editor.subscribe('editableInput', function (event, editorElement) {
+  console.log('hello');
+  console.log(event);
+  console.log(editor.getContent());
+});
 
 let notes = getNotes();
 

@@ -3,6 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css"
+      type="text/css"
+      media="screen"
+      charset="utf-8"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/css/themes/beagle.css"
+      integrity="sha512-kIbXjyUxszR7f9ElqGcn0KdsgMxc+wOQQkEa6FxQng0D29UV0PHeE/Z39/5b1mYvn4ukAXtEz26RGB40VA6Vww=="
+      crossorigin="anonymous"
+    />
     <title>Document</title>
     <style>
       .isHidden {
@@ -23,13 +37,18 @@
 
   <body>
     <div class="container">
+      <div id="editor-container"></div>
       <input
         class="note-title block mb-20"
         type="text"
         placeholder="Note title"
       />
+      <!-- <textarea class="editable medium-editor-textarea note-body">
+&lt;p&gt;Textarea is now supported&lt;/p&gt;</textarea
+      > -->
+      <textarea class="editable medium-editor-textarea"></textarea>
       <textarea
-        class="note-body block mb-20"
+        class="block mb-20 isHidden note-body"
         tname=""
         id=""
         cols="30"
@@ -41,7 +60,7 @@
       <a href="/index.html">Done</a>
       <button class="note-remove">Remove Note</button>
     </div>
-
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
     <script src="./scripts/edit-bundle.js"></script>
   </body>
 </html>
